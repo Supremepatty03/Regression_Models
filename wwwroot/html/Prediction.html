@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Подбор рецептуры</title>
+    <link rel="stylesheet" href="../css/Prediction.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Подбор рецептуры окрашивания</h2>
+
+    <p>Введите желаемые значения цвета (L, a, b)</p>
+
+    <!-- Ввод -->
+    <div class="input-block">
+        <input type="number" id="L" placeholder="L" step="0.1">
+        <input type="number" id="a" placeholder="a" step="0.1">
+        <input type="number" id="b" placeholder="b" step="0.1">
+    </div>
+
+    <button onclick="calculate()">Рассчитать</button>
+
+    <!-- Результат -->
+    <div class="result" id="resultBlock" style="display:none;">
+
+        <h3>Рекомендуемая рецептура:</h3>
+
+        <p>Концентрация (X1): <span id="x1"></span></p>
+        <p>Температура (X2): <span id="x2"></span></p>
+        <p>Время (X3): <span id="x3"></span></p>
+
+    </div>
+
+    <div class="buttons">
+        <button onclick="window.location.href='model.html'">Назад</button>
+        <button onclick="window.location.href='dashboard.html'">Главная</button>
+    </div>
+
+</div>
+
+<script>
+function calculate() {
+
+    // получение значений (пока не используется)
+    const L = document.getElementById("L").value;
+    const a = document.getElementById("a").value;
+    const b = document.getElementById("b").value;
+
+    // заглушка
+    document.getElementById("x1").innerText = (Math.random() * 2 + 1).toFixed(2);
+    document.getElementById("x2").innerText = (Math.random() * 40 + 40).toFixed(1);
+    document.getElementById("x3").innerText = (Math.random() * 30 + 10).toFixed(1);
+
+    document.getElementById("resultBlock").style.display = "block";
+}
+</script>
+
+</body>
+</html>

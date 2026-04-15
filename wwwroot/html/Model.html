@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Модель</title>
+    <link rel="stylesheet" href="../css/Model.css">
+</head>
+
+<body>
+
+<div class="container">
+
+    <h2>Результаты построения модели</h2>
+
+    <p>
+        На основе введённых данных построены регрессионные модели 
+        для координат цвета L, a, b.
+    </p>
+
+    <!-- Формулы -->
+    <div class="formulas">
+
+        <h3>Модель для L</h3>
+        <p>L = 10 + 2·X1 - 0.5·X2 + 1.2·X3</p>
+
+        <h3>Модель для a</h3>
+        <p>a = 1 + 0.8·X1 + 0.3·X2 - 0.2·X3</p>
+
+        <h3>Модель для b</h3>
+        <p>b = 5 - 0.6·X1 + 0.4·X2 + 0.9·X3</p>
+
+    </div>
+
+    <!-- Таблица коэффициентов -->
+    <table>
+        <thead>
+            <tr>
+                <th>Коэффициент</th>
+                <th>L</th>
+                <th>a</th>
+                <th>b</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td>a0</td>
+                <td>10</td>
+                <td>1</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>a1</td>
+                <td>2</td>
+                <td>0.8</td>
+                <td>-0.6</td>
+            </tr>
+            <tr>
+                <td>a2</td>
+                <td>-0.5</td>
+                <td>0.3</td>
+                <td>0.4</td>
+            </tr>
+            <tr>
+                <td>a3</td>
+                <td>1.2</td>
+                <td>-0.2</td>
+                <td>0.9</td>
+            </tr>
+        </tbody>
+    </table>
+    <h3>Сравнение: реальное vs модель (L)</h3>
+
+    <canvas id="lChart" width="400" height="200"></canvas>
+
+    <!-- Подключаем Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('lChart').getContext('2d');
+
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['1', '2', '3'], // точки
+
+                datasets: [
+                    {
+                        label: 'L (реальное)',
+                        data: [72.4, 68.9, 64.7],
+                        borderWidth: 2
+                    },
+                    {
+                        label: 'L (модель)',
+                        data: [71.5, 69.2, 65.1],
+                        borderWidth: 2
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: true
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Номер точки'
+                        }
+                    },
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Значение L'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+
+    <table>
+    <tr>
+        <th>Точка</th>
+        <th>L факт</th>
+        <th>L модель</th>
+        <th>Ошибка</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>72.4</td>
+        <td>71.5</td>
+        <td>0.9</td>
+    </tr>
+    </table>
+
+    <!-- Кнопки -->
+    <div class="buttons">
+        <button onclick="window.location.href='prediction.html'">
+            Перейти к прогнозу
+        </button>
+
+        <button onclick="window.location.href='DataInput.html'">
+            Назад
+        </button>
+    </div>
+
+</div>
+
+</body>
+</html>

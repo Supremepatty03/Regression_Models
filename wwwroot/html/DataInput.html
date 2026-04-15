@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ввод данных</title>
+    <link rel="stylesheet" href="../css/DataInput.css">
+</head>
+<body>
+    <div class="container">
+
+        <h2>Ввод экспериментальных данных</h2>
+
+        <p>Введите параметры рецептуры и соответствующие значения L, a, b</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>№</th>
+                    <th>Концентрация красителя (X1)</th>
+                    <th>Температура (X2)</th>
+                    <th>Время (X3)</th>
+                    <th>L</th>
+                    <th>a</th>
+                    <th>b</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                    <td><input type="number" step="0.1"></td>
+                </tr>
+            </tbody>
+        </table>
+                
+        <div class="buttons">
+            <button onclick="window.location.href='Model.html'">
+                Построить модель
+            </button>
+
+            <button onclick="window.location.href='Dashboard.html'">
+                Назад
+            </button>
+        </div>
+
+    </div>
+</body>
+</html>

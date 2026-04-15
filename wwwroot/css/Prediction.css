@@ -1,0 +1,31 @@
+.container {
+    width: fit-content;
+    margin: 50px auto;
+    text-align: center;
+}
+
+.input-block input {
+    width: 80px;
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.result {
+    margin-top: 20px;
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 10px;
+    display: inline-block;
+}
