@@ -1,0 +1,6 @@
+html, body {
+    height: 100%;
+}
+input {
+    transition: border 0.2s ease, box-shadow 0.2s ease;
+}

@@ -1,13 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    
 }
+
 .Auth-container {
-    width: 400px;
-    margin: 100px auto;
+    width: 100%;
+    max-width: 400px; 
+    margin: 80px auto;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -18,31 +23,43 @@ body {
     text-align: center;
     margin-bottom: 20px;
 }
+
 .Auth-container form {
     display: flex;
     flex-direction: column;
 }
+
 .Auth-container label {
     display: block;
     margin-bottom: 5px;
     font-weight: bold;
 }
+
 .Auth-container input {
-    width: 95%;
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
 }
+
+input:focus {
+    border-color: #007BFF;
+    outline: none;
+}
+
 .Auth-container button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #007BFF;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
+
 .Auth-container button:hover {
     background-color: #0056b3;
 }
@@ -59,7 +76,55 @@ body {
     text-align: center;
 }
 
-input:focus {
-    border-color: #007BFF;
-    outline: none;
+.Auth-container p {
+    text-align: center;
+    font-size: 14px;
+}
+
+.Auth-container a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.Auth-container a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+    .Auth-container {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    .Auth-container h2 {
+        font-size: 20px;
+    }
+
+    .Auth-container input {
+        font-size: 16px;
+    }
+
+    .Auth-container button {
+        font-size: 16px;
+    }
+}
+html, body {
+    height: 100%;
+}
+.container {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+input {
+    transition: border 0.2s ease, box-shadow 0.2s ease;
 }

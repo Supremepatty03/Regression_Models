@@ -1,12 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
 }
+
 .Registration-container {
-    width: 400px;
-    margin: 100px auto;
+    width: 100%;
+    max-width: 400px;
+    margin: 80px auto;
     background-color: #fff;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -22,6 +28,7 @@ body {
     display: flex;
     flex-direction: column;
 }
+
 .Registration-container label {
     display: block;
     margin-bottom: 5px;
@@ -29,21 +36,23 @@ body {
 }
 
 .Registration-container input {
-    width: 95%;
+    width: 100%;
     padding: 10px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
 }
 
 .Registration-container button {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #007BFF;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .Registration-container button:hover {
@@ -65,4 +74,22 @@ body {
 input:focus {
     border-color: #007BFF;
     outline: none;
+}
+
+@media (max-width: 600px) {
+    .Registration-container {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    .Registration-container input,
+    .Registration-container button {
+        font-size: 16px;
+    }
+}
+html, body {
+    height: 100%;
+}
+input {
+    transition: border 0.2s ease, box-shadow 0.2s ease;
 }
