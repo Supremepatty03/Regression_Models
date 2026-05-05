@@ -20,9 +20,11 @@
             <label for="password">Пароль:</label>
             <input type="password" id="password" name="password" required>
 
-            <button type="button" onclick="window.location.href='Dashboard.html'"> <!--type=submit Поменять обратно при реализации бэка: <button type="submit">Войти</button> (это все что было) -->
+            <button type="button" id="loginBtn"> <!--type=submit Поменять обратно при реализации бэка: <button type="submit">Войти</button> (это все что было) -->
                 Войти
             </button>
+
+            <p id = "errorMessage" style="color: red; display: none;"></p>
 
         </form>
         <p>
@@ -30,5 +32,7 @@
             <a href="Registration.html">Зарегистрироваться</a>
         </p>
     </div>  
+    
+    <script src="../js/Auth.js"></script>
 </body>
 </html>
