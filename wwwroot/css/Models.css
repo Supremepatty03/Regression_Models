@@ -1,6 +1,193 @@
-html, body {
-    height: 100%;
+* {
+    box-sizing: border-box;
 }
-input {
-    transition: border 0.2s ease, box-shadow 0.2s ease;
+* {
+    transition: background-color 0.7s ease, color 0.7s ease, border-color 0.7s ease;
+}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 15px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Сетка карточек */
+.models-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Карточка */
+.model-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.model-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.model-card h3 {
+    margin-bottom: 10px;
+}
+
+.model-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Кнопки внутри карточки */
+.card-buttons {
+    margin-top: 15px;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.card-buttons button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007BFF;
+    color: white;
+    transition: 0.2s;
+}
+
+.card-buttons button:hover {
+    background-color: #0056b3;
+}
+
+.card-buttons .delete {
+    background-color: #dc3545;
+}
+
+.card-buttons .delete:hover {
+    background-color: #a71d2a;
+}
+
+/* Нижние кнопки */
+.bottom-buttons {
+    margin-top: 30px;
+}
+
+.bottom-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #6c757d;
+    color: white;
+    cursor: pointer;
+}
+
+.bottom-buttons button:hover {
+    background-color: #545b62;
+}
+
+/* Адаптив */
+@media (max-width: 600px) {
+    .model-card {
+        padding: 15px;
+    }
+}
+
+/* ===== ТЁМНАЯ ТЕМА ===== */
+
+body.dark-theme {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+}
+
+/* основной контейнер */
+body.dark-theme .container {
+    background: #1e293b;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme h2 {
+    color: #f1f5f9;
+}
+
+body.dark-theme p {
+    color: #94a3b8;
+}
+
+body.dark-theme table {
+    background: #1e293b;
+}
+
+body.dark-theme th {
+    background: #3b82f6;
+}
+
+body.dark-theme td {
+    border: 1px solid #334155;
+}
+
+/* строки */
+body.dark-theme tbody tr:nth-child(even) td {
+    background: #0f172a;
+}
+
+body.dark-theme tbody tr:hover td {
+    background: #1e3a8a;
+}
+
+/* input */
+body.dark-theme input {
+    background: #0f172a;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+}
+
+body.dark-theme input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+
+body.dark-theme button {
+    background-color: #3b82f6;
+}
+
+body.dark-theme button:hover {
+    background-color: #2563eb;
+}
+
+/* ошибка */
+body.dark-theme .input-error {
+    background-color: #3b1f1f;
+    border: 2px solid #ef4444 !important;
+}
+
+body {
+    transition: background 0.7s, color 0.7s;
+}
+
+.container,
+table,
+input,
+button {
+    transition: background 0.7s, color 0.7s, border 0.7s;
 }

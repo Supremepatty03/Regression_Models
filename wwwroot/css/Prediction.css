@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+* {
+    transition: background-color 0.7s ease, color 0.7s ease, border-color 0.7s ease;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -147,7 +151,7 @@ html, body {
     }
 }
 .container {
-    animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.7s ease-out;
 }
 
 @keyframes fadeIn {
@@ -162,4 +166,93 @@ html, body {
 }
 input {
     transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+input.input-error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+/* ===== ТЁМНАЯ ТЕМА ===== */
+
+body.dark-theme {
+    background: linear-gradient(180deg, #0f172a 0%, #1e293b 100%);
+    color: #e2e8f0;
+}
+
+/* основной контейнер */
+body.dark-theme .container {
+    background: #1e293b;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.dark-theme h2 {
+    color: #f1f5f9;
+}
+
+body.dark-theme p {
+    color: #94a3b8;
+}
+
+body.dark-theme table {
+    background: #1e293b;
+}
+
+body.dark-theme th {
+    background: #3b82f6;
+}
+
+body.dark-theme td {
+    border: 1px solid #334155;
+}
+
+/* строки */
+body.dark-theme tbody tr:nth-child(even) td {
+    background: #0f172a;
+}
+
+body.dark-theme tbody tr:hover td {
+    background: #1e3a8a;
+}
+
+/* input */
+body.dark-theme input {
+    background: #0f172a;
+    color: #e2e8f0;
+    border: 1px solid #334155;
+}
+
+body.dark-theme input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3);
+}
+
+
+body.dark-theme button {
+    background-color: #3b82f6;
+}
+
+body.dark-theme button:hover {
+    background-color: #2563eb;
+}
+
+/* ошибка */
+body.dark-theme .input-error {
+    background-color: #3b1f1f;
+    border: 2px solid #ef4444 !important;
+}
+
+body {
+    transition: background 0.7s, color 0.7s;
+}
+
+.container,
+table,
+input,
+button {
+    transition: background 0.7s, color 0.7s, border 0.7s;
+}
+
+body.dark-theme .result {
+    background-color: #0f172a;
+    border-color: #334155;
 }
