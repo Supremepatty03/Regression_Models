@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
     button.style.border = "none";
     button.style.zIndex = "1000";
     button.style.backgroundColor = "#111111";
-    button.style.length = "30px";
+    button.style.length = "25px";
     button.style.width = "60px";
 
 
