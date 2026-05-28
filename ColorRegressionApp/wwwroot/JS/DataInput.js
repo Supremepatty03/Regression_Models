@@ -2,47 +2,78 @@ document.addEventListener("DOMContentLoaded", function () {
     const button = document.getElementById("buildModelBtn");
     const errorMsg = document.getElementById("errorMsg");
 
-    button.addEventListener("click", function () {
-        const inputs = document.querySelectorAll("tbody input");
+    button.addEventListener("click", async function () {
+        const rows = document.querySelectorAll("tbody tr");
+        const points = [];
+
         let isValid = true;
         let firstEmpty = null;
 
-        inputs.forEach(input => {
+        rows.forEach((row) => {
             const inputs = row.querySelectorAll("input");
 
-            points.push(
-            {
-                x1: parseFloat(inputs[0].value),
-                x2: parseFloat(inputs[1].value),
-                x3: parseFloat(inputs[2].value),
-                l: parseFloat(inputs[3].value),
-                a: parseFloat(inputs[4].value),
-                b: parseFloat(inputs[5].value)
+            inputs.forEach((input) => {
+                input.classList.remove("input-error");
+
+                if (input.value.trim() === "") {
+                    isValid = false;
+                    input.classList.add("input-error");
+                    if (!firstEmpty) firstEmpty = input;
+                }
+            });
+
+            const values = Array.from(inputs).map((input) =>
+                Number(input.value.replace(",", "."))
+            );
+
+            if (values.some((v) => Number.isNaN(v))) {
+                isValid = false;
+                if (!firstEmpty) firstEmpty = inputs[0];
+                return;
+            }
+
+            points.push({
+                x1: values[0],
+                x2: values[1],
+                x3: values[2],
+                l: values[3],
+                a: values[4],
+                b: values[5]
             });
         });
 
         if (!isValid) {
-            errorMsg.textContent = "Заполните все поля во всех трех строках.";
+            errorMsg.textContent = "Заполните все поля.";
             errorMsg.style.display = "block";
-
-            if (firstEmpty) {
-                firstEmpty.focus();
-            }
+            if (firstEmpty) firstEmpty.focus();
             return;
         }
 
-        const response = await fetch("/api/model/build",
-        {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ experimentPoints: points })
-        });
-        
-        const data = await response.json();
+        try {
+            const response = await fetch("/api/Model/Build", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    name: "Модель 1",
+                    points: points
+                })
+            });
 
-        localStorage.setItem("modelData", JSON.stringify(data));
+            if (!response.ok) {
+                const text = await response.text();
+                throw new Error(text || "Ошибка построения модели");
+            }
 
-        errorMsg.style.display = "none";
-        window.location.href = "Model.html";
+            const data = await response.json();
+
+            errorMsg.style.display = "none";
+            window.location.href = `Model.html?modelId=${data.modelId}`;
+        } catch (e) {
+            console.error(e);
+            errorMsg.textContent = "Ошибка при отправке данных.";
+            errorMsg.style.display = "block";
+        }
     });
 });

@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
     const button = document.getElementById("registerBtn");
-    button.addEventListener("click", function () {
+    const errorMessage = document.getElementById("errorMessage");
+
+    button.addEventListener("click", async function () {
         const username = document.getElementById("username").value.trim();
         const email = document.getElementById("email").value.trim();
         const password = document.getElementById("password").value.trim();
-        const errorMessage = document.getElementById("errorMessage");
+
+        errorMessage.style.display = "none";
 
         if (username === "" || email === "" || password === "") {
             errorMessage.textContent = "Заполните все поля!";
@@ -12,34 +15,24 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        try 
-        {
-            const response = await fetch("/api/auth/register", 
-            {
+        try {
+            const response = await fetch("/api/Account/Register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ username, email, password })
             });
-            if (!response.ok) 
-            {
-                error.textContent = "Неверные имя пользователя или пароль.";
-                error.style.display = "block";
+
+            if (!response.ok) {
+                const text = await response.text();
+                errorMessage.textContent = text || "Ошибка регистрации.";
+                errorMessage.style.display = "block";
                 return;
             }
-            const data = await response.json();
 
-            console.log("Токен:", data.token);
-
-            window.location.href = "Dashboard.html";
-        } 
-        catch 
-        {
-            error.textContent = "Ошибка при входе.";
-            error.style.display = "block";
+            window.location.href = "Auth.html";
+        } catch (e) {
+            errorMessage.textContent = "Ошибка при регистрации.";
+            errorMessage.style.display = "block";
         }
-
-        errorMessage.style.display = "none";
-
-        window.location.href = "Dashboard.html";
     });
 });

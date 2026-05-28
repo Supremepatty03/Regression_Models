@@ -1,9 +1,0 @@
-D:\CSharp\HTML_Course\ColorRegressionApp\obj\Debug\net10.0\ColorRegressionApp.csproj.AssemblyReference.cache
-D:\CSharp\HTML_Course\ColorRegressionApp\obj\Debug\net10.0\rpswa.dswa.cache.json
-D:\CSharp\HTML_Course\ColorRegressionApp\obj\Debug\net10.0\ColorRegressionApp.GeneratedMSBuildEditorConfig.editorconfig
-D:\CSharp\HTML_Course\ColorRegressionApp\obj\Debug\net10.0\ColorRegressionApp.AssemblyInfoInputs.cache
-D:\CSharp\HTML_Course\ColorRegressionApp\obj\Debug\net10.0\ColorRegressionApp.AssemblyInfo.cs
-D:\CSharp\HTML_Course\ColorRegressionApp\obj\Debug\net10.0\ColorRegressionApp.csproj.CoreCompileInputs.cache
-D:\CSharp\HTML_Course\ColorRegressionApp\obj\Debug\net10.0\ColorRegressionApp.MvcApplicationPartsAssemblyInfo.cs
-D:\CSharp\HTML_Course\ColorRegressionApp\obj\Debug\net10.0\ColorRegressionApp.MvcApplicationPartsAssemblyInfo.cache
-D:\CSharp\HTML_Course\ColorRegressionApp\obj\Debug\net10.0\ColorRegressionApp.sourcelink.json

@@ -1,8 +1,12 @@
-namespace ColourRegressionApp.DTO
+namespace ColorRegressionApp.DTO;
+
+using System.Text.Json.Serialization;
+
+public class LoginRequest
 {
-    public class LoginRequest
-    {
-        public string Username { get; set; } = "";
-        public string Password { get; set; } = "";
-    }
+    [JsonPropertyName("username")]
+    public string Username { get; set; } = "";
+    
+    [JsonPropertyName("password")]
+    public string Password { get; set; } = "";
 }
