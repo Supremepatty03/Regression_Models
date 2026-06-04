@@ -3,59 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Модели</title>
+    <title>Сохранённые модели</title>
     <link rel="stylesheet" href="../css/Models.css">
 </head>
-
 <body>
+    <div class="container">
+        <h2>Сохранённые модели</h2>
+        <p class="subtitle">Выберите модель для просмотра</p>
 
-<div class="container">
+        <div id="modelsGrid" class="models-grid"></div>
 
-    <h2>Сохранённые модели</h2>
-    <p class="subtitle">Выберите модель для просмотра</p>
+        <p id="emptyState" class="empty-state" style="display:none;">
+            Сохранённых моделей пока нет.
+        </p>
 
-    <div class="models-grid">
-
-        <div class="model-card">
-            <h3>Модель №1</h3>
-            <p>Дата: 01.05.2026</p>
-            <p>Параметры: 3 фактора</p>
-
-            <div class="card-buttons">
-                <button onclick="window.location.href='model.html'">Открыть</button>
-                <button class="delete">Удалить</button>
-            </div>
+        <div class="bottom-buttons">
+            <button onclick="window.location.href='dashboard.html'">Назад</button>
         </div>
-
-        <div class="model-card">
-            <h3>Модель №2</h3>
-            <p>Дата: 03.05.2026</p>
-            <p>Параметры: 3 фактора</p>
-
-            <div class="card-buttons">
-                <button onclick="window.location.href='model.html'">Открыть</button>
-                <button class="delete">Удалить</button>
-            </div>
-        </div>
-
-        <div class="model-card">
-            <h3>Модель №3</h3>
-            <p>Дата: 05.05.2026</p>
-            <p>Параметры: 3 фактора</p>
-
-            <div class="card-buttons">
-                <button onclick="window.location.href='model.html'">Открыть</button>
-                <button class="delete">Удалить</button>
-            </div>
-        </div>
-
     </div>
 
-    <div class="bottom-buttons">
-        <button onclick="window.location.href='dashboard.html'">Назад</button>
-    </div>
-
-</div>
-<script src="../js/Theme.js"></script>
+    <script src="../js/Models.js"></script>
+    <script src="../js/Theme.js"></script>
 </body>
 </html>
